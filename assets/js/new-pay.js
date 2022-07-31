@@ -1,7 +1,9 @@
 var token,emps,dt;
 const pay_form = document.getElementById('pay-form')
-
+const uidList= document.getElementById('puid');
+const nameList=document.getElementById('pempname');
 function getENU(){
+    console.log(uidList.value);
     var xtp = new XMLHttpRequest();
     xtp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -9,7 +11,16 @@ function getENU(){
             console.log(emps);
             emps.forEach(emp => {
                dt=emp.split('<>');
-               console.log(dt); 
+               op=document.createElement('option');
+               op.value=dt[0];
+               op.textContent=dt[0];
+               op.id=dt[0];
+               op1=document.createElement('option');
+               op1.value=dt[1];
+               op1.textContent=dt[1];
+               op1.id=dt[1];
+               uidList.appendChild(op);
+               nameList.appendChild(op1);
             });
         }
     };
@@ -24,8 +35,8 @@ pay_form.onsubmit=(e)=>{
     console.log(e)
     e.preventDefault();
     var pid=document.getElementById('pid').value;
-    var uid = document.getElementById('uid').value;
-    var empname = document.getElementById('empname').value;  
+    var uid = document.getElementById('puid').value;
+    var empname = document.getElementById('pempname').value;  
     var paydate = document.getElementById('paydate').value; 
     var basicpay = document.getElementById('basicpay').value; 
     var da = document.getElementById('da').value; 
@@ -59,9 +70,9 @@ pay_form.onsubmit=(e)=>{
             },3000)
         }
     };
-    // xtp.open("POST", "https://dinero-server.herokuapp.com/new-emp.php", true);
-    // xtp.open("POST", "http://localhost/Server/new-emp.php", true);
-    // xtp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    
-    xtp.send(`pid=${pid} & uid=${uid} & empname=${empname} & paydate=${paydate} & basicpay=${basicpay} & da=${da} & hra=${hra} & cca=${cca} & inslic=${inslic} & sli=${sli} & gpf=${gpf}`);
+    xtp.open("POST", "https://dinero-server.herokuapp.com/new-pay.php", true);
+    // xtp.open("POST", "http://localhost/Server/new-pay.php", true);
+    xtp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    console.log(`pid=${pid}&uid=${uid}&empname=${empname}&paydate=${paydate}&basicpay=${basicpay}&da=${da}&hra=${hra}&cca=${cca}&insurancelic=${inslic} & sli=${sli}&gpf=${gpf}`);
+    xtp.send(`pid=${pid}&uid=${uid}&empname=${empname}&paydate=${paydate}&basicpay=${basicpay}&da=${da}&hra=${hra}&cca=${cca}&insurancelic=${inslic} & sli=${sli}&gpf=${gpf}`);
 }
