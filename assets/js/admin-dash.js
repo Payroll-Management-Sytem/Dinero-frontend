@@ -15,6 +15,18 @@ function logout(){
 }
 
 document.getElementById('add-emp').addEventListener("click",()=>{
-    document.getElementById('new-emp-form').classList.toggle('d-none');
-    document.getElementById('about').classList.toggle('d-none');
+    document.getElementById('new-emp-form').classList.remove('d-none');
+    
+    document.getElementById('new-pay-form').classList.add('d-none');
+    document.getElementById('about').classList.add('d-none');
+})
+document.getElementById('add-pay').addEventListener("click",()=>{
+    document.getElementById('new-pay-form').classList.remove('d-none');
+    document.getElementById('new-emp-form').classList.add('d-none');
+    document.getElementById('about').classList.add('d-none');
+})
+document.getElementById('home-btn').addEventListener("click",()=>{
+    document.getElementById('new-pay-form').classList.add('d-none');
+    document.getElementById('new-emp-form').classList.add('d-none');
+    document.getElementById('about').classList.remove('d-none');
 })

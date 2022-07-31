@@ -86,6 +86,18 @@
         <div class="col-4">
           <div class="u-list u-list-1">
             <div class="u-repeater u-repeater-1">
+              <a id="home-btn">
+                <div class="u-container-style u-list-item u-repeater-item">
+                  <div class="u-container-layout u-similar-container u-container-layout-1">
+                    <div
+                      class="u-absolute-hcenter u-align-center u-container-style u-expanded u-group u-hover-feature u-opacity u-opacity-15 u-radius-34 u-shape-round u-white u-group-1">
+                      <div class="u-container-layout u-valign-bottom u-container-layout-2">
+                        <h4 class="u-text u-text-body-alt-color u-text-1">Home</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
               <a href="./employees.html">
                 <div class="u-container-style u-list-item u-repeater-item">
                   <div class="u-container-layout u-similar-container u-container-layout-1">
@@ -110,7 +122,7 @@
                   </div>
                 </div>
               </a>
-              <a href="./new-payment.html">
+              <a id="add-pay">
                 <div class="u-container-style u-list-item u-repeater-item">
                   <div class="u-container-layout u-similar-container u-container-layout-5">
                     <div
@@ -173,7 +185,7 @@
         <div id="new-emp-form" class="d-none col-8">
           <div class="container mt-2 mb-2"
           style="background-color: #3b3b3b8f; padding: 10px;padding-right: 30px; border-radius: 15px;color: white;">
-          <form id="form">
+          <form id="emp-form">
             <div class="form-group row">
               <label for="empname" class="col-3 col-form-label">Name</label>
               <div class="col-9">
@@ -343,6 +355,182 @@
           </form>
         </div>
         </div>
+        <div id="new-pay-form" class ="d-none col-8">
+          <div class="container mt-2 mb-2"
+        style="background-color: #3b3b3b8f; padding: 10px;padding-right: 30px; border-radius: 15px;color: white;">
+        <form id="pay-form">
+          <div class="form-group row">
+            <label for="pid" class="col-3 col-form-label">Payment ID</label>
+            <div class="col-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fa fa-address-card"></i>
+                  </div>
+                </div>
+                <input id="pid" name="pid" type="text" required="required" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="uid" class="col-3 col-form-label">UserID</label>
+            <div class="col-9">
+              <select id="puid" name="uid" class="custom-select" required="required">
+                <option value="rabbit">Select</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="empname" class="col-3 col-form-label">Name</label>
+            <div class="col-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fa fa-500px"></i>
+                  </div>
+                </div>
+                <input id="pempname" name="empname" type="text" required="required" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="paydate" class="col-3 col-form-label">Date Of Pay</label>
+            <div class="col-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fa fa-lock"></i>
+                  </div>
+                </div>
+                <input id="paydate" name="paydate" type="text" required="required" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="basicpay" class="col-3 col-form-label">Basic Pay</label>
+            <div class="col-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fa fa-id-badge"></i>
+                  </div>
+                </div>
+                <input id="basicpay" name="basicpay" type="text" class="form-control" required="required">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="da" class="col-3 col-form-label">DA</label>
+            <div class="col-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fa fa-sign-language"></i>
+                  </div>
+                </div>
+                <input id="da" name="da" type="text" class="form-control" required="required">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="hra" class="col-3 col-form-label">HRA</label>
+            <div class="col-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fa fa-adn"></i>
+                  </div>
+                </div>
+                <input id="hra" name="hra" type="text" class="form-control" required="required">
+              </div>
+            </div>
+          </div>
+          <!-- <div class="form-group row">
+            <label class="col-3">Gender</label>
+            <div class="col-9 u-align-left">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input name="gender" id="gender_0" type="radio" required="required" class="custom-control-input"
+                  value="Male">
+                <label for="gender_0" class="custom-control-label">Male</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input name="gender" id="gender_1" type="radio" required="required" class="custom-control-input"
+                  value="Female">
+                <label for="gender_1" class="custom-control-label">Female</label>
+              </div>
+            </div>
+          </div> -->
+          <div class="form-group row">
+            <label for="cca" class="col-3 col-form-label">CCA</label>
+            <div class="col-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                </div>
+                <input id="cca" name="cca" type="text" class="form-control" required="required">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inslic" class="col-3 col-form-label">Insurance LIC</label>
+            <div class="col-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fa fa-archive"></i>
+                  </div>
+                </div>
+                <input id="inslic" name="inslic" type="text" class="form-control" required="required">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="sli" class="col-3 col-form-label">SLI</label>
+            <div class="col-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fa fa-location-arrow"></i>
+                  </div>
+                </div>
+                <input id="sli" name="sli" type="text" class="form-control" required="required">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="gpf" class="col-3 col-form-label">GPF</label>
+            <div class="col-9">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fa fa-location-arrow"></i>
+                  </div>
+                </div>
+                <input id="gpf" name="gpf" type="text" class="form-control" required="required">
+              </div>
+            </div>
+          </div>
+          <div id="npf-sub" class="form-group row">
+            <div class="offset-3 col-9">
+              <button name="submit" type="submit" class="btn btn-success">Submit</button>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-3 col-9">
+              <label class="d-none" id="npf-sus-msg" style="color: rgb(7, 233, 7);">
+              Success
+            </label>
+            <label class="d-none" id="npf-err-msg" style="color: rgb(233, 7, 7);">
+              Error
+            </label>
+            </div>
+            
+          </div>
+        </form>
+      </div>
+        </div>
       </div>
     </div>
 
@@ -474,6 +662,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
   <script src="./assets/js/admin-dash.js"></script>
   <script src="./assets/js/new-emp.js"></script>
+  <script src="./assets/js/new-pay.js"></script>
 </body>
 
 </html>

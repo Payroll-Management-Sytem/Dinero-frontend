@@ -1,21 +1,26 @@
-var token;
-if(document.cookie.split("=")[1]){
-    token=document.cookie.split("=")[1];
-    if(!(token.split('-')[1])){
-        alert("Not an admin. Login with proper credentials");
-    location.replace("./");
-    }
-}else{
-    alert("Session expired. Login again");
-    location.replace("./");
-}
-function logout(){
-    document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    location.replace("./");
-}document.getElementById('logout').addEventListener("click",logout);
-const form = document.getElementById('form')
+var token,emps,dt;
+const pay_form = document.getElementById('pay-form')
 
-form.onsubmit=(e)=>{
+function getENU(){
+    var xtp = new XMLHttpRequest();
+    xtp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            emps=this.responseText.split("[o]");
+            console.log(emps);
+            emps.forEach(emp => {
+               dt=emp.split('<>');
+               console.log(dt); 
+            });
+        }
+    };
+    // xtp.open("POST", "https://dinero-server.herokuapp.com/enu.php", true);
+    xtp.open("POST", "http://localhost/Server/enu.php", true);
+    xtp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xtp.send(`uid=${token}`);
+}
+document.getElementById('add-pay').addEventListener("click",getENU);
+
+pay_form.onsubmit=(e)=>{
     console.log(e)
     e.preventDefault();
     var pid=document.getElementById('pid').value;
@@ -33,6 +38,25 @@ form.onsubmit=(e)=>{
     xtp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText)
+            if(this.responseText=="success"){
+                document.getElementById('npf-sub').classList.toggle('d-none');
+                document.getElementById('npf-sus-msg').classList.toggle('d-none');
+                
+                setTimeout(()=>{
+                    document.getElementById('new-pay-form').classList.toggle('d-none');
+                    document.getElementById('about').classList.toggle('d-none');
+                    document.getElementById('npf-sub').classList.toggle('d-none');
+                    document.getElementById('npf-sus-msg').classList.toggle('d-none');
+                    pay_form.reset();
+                },2000);
+
+            }
+        }
+        else if(this.readyState== 4){
+            document.getElementById('npf-err-msg').classList.toggle('d-none');
+            setTimeout(()=>{
+            document.getElementById('npf-err-msg').classList.toggle('d-none');
+            },3000)
         }
     };
     // xtp.open("POST", "https://dinero-server.herokuapp.com/new-emp.php", true);

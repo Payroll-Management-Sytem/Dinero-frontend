@@ -1,10 +1,10 @@
 var token;
-const form = document.getElementById('form')
+const emp_form = document.getElementById('emp-form')
 var gender="";
 document.getElementById('gender_0').addEventListener("click",()=>{gender="Male";})
 document.getElementById('gender_1').addEventListener("click",()=>{gender="Female";})
 document.getElementById('gender_2').addEventListener("click",()=>{gender="Other";})
-form.onsubmit=(e)=>{
+emp_form.onsubmit=(e)=>{
     console.log(e)
     e.preventDefault();
     var username=document.getElementById('username').value;
@@ -31,7 +31,7 @@ form.onsubmit=(e)=>{
                     document.getElementById('about').classList.toggle('d-none');
                     document.getElementById('nef-sub').classList.toggle('d-none');
                     document.getElementById('nef-sus-msg').classList.toggle('d-none');
-                    form.reset();
+                    emp_form.reset();
                 },2000);
 
             }
