@@ -13,3 +13,8 @@ function logout(){
     document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     location.replace("./");
 }
+
+document.getElementById('add-emp').addEventListener("click",()=>{
+    document.getElementById('new-emp-form').classList.toggle('d-none');
+    document.getElementById('about').classList.toggle('d-none');
+})

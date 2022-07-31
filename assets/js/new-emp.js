@@ -1,18 +1,4 @@
 var token;
-if(document.cookie.split("=")[1]){
-    token=document.cookie.split("=")[1];
-    if(!(token.split('-')[1])){
-        alert("Not an admin. Login with proper credentials");
-    location.replace("./");
-    }
-}else{
-    alert("Session expired. Login again");
-    location.replace("./");
-}
-function logout(){
-    document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-    location.replace("./");
-}document.getElementById('logout').addEventListener("click",logout);
 const form = document.getElementById('form')
 var gender="";
 document.getElementById('gender_0').addEventListener("click",()=>{gender="Male";})
@@ -35,7 +21,26 @@ form.onsubmit=(e)=>{
     var xtp = new XMLHttpRequest();
     xtp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText)
+            console.log(this.responseText);
+            if(this.responseText=="success"){
+                document.getElementById('nef-sub').classList.toggle('d-none');
+                document.getElementById('nef-sus-msg').classList.toggle('d-none');
+                
+                setTimeout(()=>{
+                    document.getElementById('new-emp-form').classList.toggle('d-none');
+                    document.getElementById('about').classList.toggle('d-none');
+                    document.getElementById('nef-sub').classList.toggle('d-none');
+                    document.getElementById('nef-sus-msg').classList.toggle('d-none');
+                    form.reset();
+                },2000);
+
+            }
+        }
+        else if(this.readyState== 4){
+            document.getElementById('nef-err-msg').classList.toggle('d-none');
+            setTimeout(()=>{
+            document.getElementById('nef-err-msg').classList.toggle('d-none');
+            },3000)
         }
     };
     xtp.open("POST", "https://dinero-server.herokuapp.com/new-emp.php", true);
