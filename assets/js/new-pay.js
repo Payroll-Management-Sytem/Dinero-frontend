@@ -24,8 +24,8 @@ function getENU(){
             });
         }
     };
-    // xtp.open("POST", "https://dinero-server.herokuapp.com/enu.php", true);
-    xtp.open("POST", "http://localhost/Server/enu.php", true);
+    xtp.open("POST", "https://dinero-server.herokuapp.com/enu.php", true);
+    // xtp.open("POST", "http://localhost/Server/enu.php", true);
     xtp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xtp.send(`uid=${token}`);
 }
