@@ -32,7 +32,7 @@ function getENU(){
 document.getElementById('add-pay').addEventListener("click",getENU);
 
 pay_form.onsubmit=(e)=>{
-    console.log(e)
+    // console.log(e)
     e.preventDefault();
     var pid=document.getElementById('pid').value;
     var uid = document.getElementById('puid').value;

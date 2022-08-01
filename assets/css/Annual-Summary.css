@@ -1,6 +1,9 @@
  .u-section-1 {
-  background-image: url("../../images/99f232fae168a35ec53bce82a52edf78.jpg");
+  /* background-image: url("../../images/99f232fae168a35ec53bce82a52edf78.jpg"); */
+  background-image: url("../../images/images1.jpeg");
   background-position: 50% 50%;
+  color: white;
+  font-weight: 500;
 }
 
 .u-section-1 .u-sheet-1 {

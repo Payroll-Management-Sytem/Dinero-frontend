@@ -16,7 +16,9 @@
    font-size: 3rem;
    margin: 19px auto 0;
  }
-
+.i{
+  text-align: center;
+}
  .u-section-1 .u-image-1 {
    width: 99px;
    height: 99px;
