@@ -13,11 +13,11 @@ function getENU(){
                dt=emp.split('<>');
                op=document.createElement('option');
                op.value=dt[0];
-               op.textContent=dt[0];
+               op.textContent=`${dt[0]} - ${dt[1]}`;
                op.id=dt[0];
                op1=document.createElement('option');
                op1.value=dt[1];
-               op1.textContent=dt[1];
+               op1.textContent=`${dt[0]} - ${dt[1]}`;
                op1.id=dt[1];
                uidList.appendChild(op);
                nameList.appendChild(op1);

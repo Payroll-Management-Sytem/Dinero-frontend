@@ -17,7 +17,7 @@ function getU() {
                 dt = emp.split('<>');
                 op = document.createElement('option');
                 op.value = dt[0];
-                op.textContent = dt[0];
+                op.textContent = `${dt[0]} - ${dt[1]}`;
                 op.id = dt[0];
                 uidListP.appendChild(op);
             });
