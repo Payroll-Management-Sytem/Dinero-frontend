@@ -15,9 +15,9 @@ function getTotSum(){
     var xtp = new XMLHttpRequest();
     xtp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.response);
+            // console.log(this.response);
             var res=this.response.split('<_o_>');
-            console.log(res);
+            // console.log(res);
             document.getElementById('emp-name').innerText=res[0];
             document.getElementById('table-out').innerHTML=res[1];
         }

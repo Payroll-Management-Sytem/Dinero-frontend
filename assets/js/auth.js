@@ -1,5 +1,5 @@
 function auth(){
-    console.log("started")
+    // console.log("started")
     var name=document.getElementById('email').value;
     var pass=document.getElementById('password').value; 
     var xhttp = new XMLHttpRequest();

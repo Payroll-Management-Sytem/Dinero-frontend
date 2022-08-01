@@ -7,12 +7,12 @@ document.getElementById('dgender_0').addEventListener("click", () => { dgender =
 document.getElementById('dgender_1').addEventListener("click", () => { dgender = "Female"; })
 document.getElementById('dgender_2').addEventListener("click", () => { dgender = "Other"; })
 function getU() {
-    console.log(uidList.value);
+    // console.log(uidList.value);
     var xtp = new XMLHttpRequest();
     xtp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             emps = this.responseText.split("[o]");
-            console.log(emps);
+            // console.log(emps);
             emps.forEach(emp => {
                 dt = emp.split('<>');
                 op = document.createElement('option');
@@ -35,7 +35,7 @@ uid_select_form.onsubmit = (e) => {
     xtp = new XMLHttpRequest();
     xtp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
+            // console.log(this.responseText);
             var details = this.responseText.split('<>');
             document.getElementById('dusername').value = details[1];
             document.getElementById('dempname').value = details[3];
@@ -75,7 +75,7 @@ detail_form.onsubmit = (e)=>{
     var xtp = new XMLHttpRequest();
     xtp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
+            // console.log(this.responseText);
             if(this.responseText=="success"){
                 document.getElementById('dnef-sub').classList.toggle('d-none');
                 document.getElementById('dnef-sus-msg').classList.toggle('d-none');

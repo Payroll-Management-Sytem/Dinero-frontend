@@ -30,7 +30,7 @@ function getUserProfile(){
     xtp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var data=this.responseText.split("<>");
-            console.log(data);
+            // console.log(data);
             document.getElementById('Name').innerText=data[3];
             document.getElementById('emp-id').innerText=data[2];
             document.getElementById('age').innerText=data[4];
@@ -53,7 +53,7 @@ function getDetails(month) {
     xtp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById('res-id').innerHTML=this.responseText;
-            console.log(this.responseText)
+            // console.log(this.responseText)
         }
     };
     xtp.open("POST", "https://dinero-server.herokuapp.com/monthly.php", true);
@@ -63,6 +63,6 @@ function getDetails(month) {
 }
 getDetails('1');
 Object.keys(months).forEach(element => {
-    console.log(element);
+    // console.log(element);
     document.getElementById(element).addEventListener("click",()=>{getDetails(months[element])});
 });

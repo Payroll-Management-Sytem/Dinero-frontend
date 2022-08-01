@@ -5,7 +5,7 @@ document.getElementById('gender_0').addEventListener("click",()=>{gender="Male";
 document.getElementById('gender_1').addEventListener("click",()=>{gender="Female";})
 document.getElementById('gender_2').addEventListener("click",()=>{gender="Other";})
 emp_form.onsubmit=(e)=>{
-    console.log(e)
+    // console.log(e)
     e.preventDefault();
     var username=document.getElementById('username').value;
     var empname = document.getElementById('empname').value; 
@@ -21,7 +21,7 @@ emp_form.onsubmit=(e)=>{
     var xtp = new XMLHttpRequest();
     xtp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
+            // console.log(this.responseText);
             if(this.responseText=="success"){
                 document.getElementById('nef-sub').classList.toggle('d-none');
                 document.getElementById('nef-sus-msg').classList.toggle('d-none');
