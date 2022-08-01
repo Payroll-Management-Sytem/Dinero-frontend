@@ -12613,7 +12613,6 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
   },
 });
 
-var token;
 
 function dashboardcheck() {
   if (document.cookie.split("=")[1]) {
