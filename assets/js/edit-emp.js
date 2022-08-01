@@ -1,4 +1,4 @@
-var token, emps, dt,uid;
+var token, emps, dt, uid;
 const uid_select_form = document.getElementById('uid-select');
 const detail_form = document.getElementById('details-form');
 const uidListP = document.getElementById('euid');
@@ -14,12 +14,14 @@ function getU() {
             emps = this.responseText.split("[o]");
             // console.log(emps);
             emps.forEach(emp => {
-                dt = emp.split('<>');
-                op = document.createElement('option');
-                op.value = dt[0];
-                op.textContent = `${dt[0]} - ${dt[1]}`;
-                op.id = dt[0];
-                uidListP.appendChild(op);
+                if (emp) {
+                    dt = emp.split('<>');
+                    op = document.createElement('option');
+                    op.value = dt[0];
+                    op.textContent = `${dt[0]} - ${dt[1]}`;
+                    op.id = dt[0];
+                    uidListP.appendChild(op);
+                }
             });
         }
     };
@@ -59,49 +61,49 @@ uid_select_form.onsubmit = (e) => {
     xtp.send(`uid=${uid}`);
 
 }
-detail_form.onsubmit = (e)=>{
+detail_form.onsubmit = (e) => {
     e.preventDefault();
-    var username=document.getElementById('dusername').value;
-    var empname = document.getElementById('dempname').value; 
-    var duid = document.getElementById('duid').value; 
-    var pass = document.getElementById('dpass').value; 
-    var empid = document.getElementById('dempid').value; 
-    var age = document.getElementById('dage').value; 
-    var dob = document.getElementById('ddob').value;  
-    var doj = document.getElementById('ddoj').value; 
-    var desig = document.getElementById('ddesig').value; 
-    var ofc = document.getElementById('dofc').value; 
+    var username = document.getElementById('dusername').value;
+    var empname = document.getElementById('dempname').value;
+    var duid = document.getElementById('duid').value;
+    var pass = document.getElementById('dpass').value;
+    var empid = document.getElementById('dempid').value;
+    var age = document.getElementById('dage').value;
+    var dob = document.getElementById('ddob').value;
+    var doj = document.getElementById('ddoj').value;
+    var desig = document.getElementById('ddesig').value;
+    var ofc = document.getElementById('dofc').value;
     var xtp = new XMLHttpRequest();
     var xtp = new XMLHttpRequest();
     xtp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             // console.log(this.responseText);
-            if(this.responseText=="success"){
+            if (this.responseText == "success") {
                 document.getElementById('dnef-sub').classList.toggle('d-none');
                 document.getElementById('dnef-sus-msg').classList.toggle('d-none');
-                
-                setTimeout(()=>{
+
+                setTimeout(() => {
                     document.getElementById('emp-edit').classList.toggle('d-none');
                     document.getElementById('about').classList.toggle('d-none');
                     document.getElementById('dnef-sub').classList.toggle('d-none');
                     document.getElementById('dnef-sus-msg').classList.toggle('d-none');
                     detail_form.reset();
                     uid_select_form.reset();
-                },2000);
+                }, 2000);
 
             }
         }
-        else if(this.readyState== 4){
+        else if (this.readyState == 4) {
             document.getElementById('dnef-err-msg').classList.toggle('d-none');
-            setTimeout(()=>{
-            document.getElementById('dnef-err-msg').classList.toggle('d-none');
-            },3000)
+            setTimeout(() => {
+                document.getElementById('dnef-err-msg').classList.toggle('d-none');
+            }, 3000)
         }
     };
     xtp.open("POST", "https://dinero-server.herokuapp.com/update.php", true);
     // xtp.open("POST", "http://localhost/Server/update.php", true);
     xtp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    
+
     xtp.send(`username=${username}&empname=${empname}&uid=${duid}&pass=${pass}&empid=${empid}&age=${age}&dob=${dob}&gender=${dgender}&doj=${doj}&desig=${desig}&ofc=${ofc}&old=${uid}`);
 
 }
