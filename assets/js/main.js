@@ -12638,7 +12638,7 @@ function viewportCheck() {
     viewportFlag=0;
     location.reload();
   }
-  setTimeout(viewportCheck, 5000);
+  setTimeout(viewportCheck, 1000*20);
 }
 viewportCheck();
 function dashboardcheck() {
@@ -12654,4 +12654,4 @@ function dashboardcheck() {
     location.replace("./");
   }
 }
-  document.getElementById('dash').addEventListener("click", dashboardcheck);
+document.getElementById('dash').addEventListener("click", dashboardcheck);
