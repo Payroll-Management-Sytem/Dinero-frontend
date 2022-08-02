@@ -12621,7 +12621,7 @@ function viewportCheck() {
   tempbody=home.innerHTML;
   home.style.backgroundColor="rgba(6, 27, 186, 0.75)";
   home.innerHTML=`<div align="center" style="height: 100%;width:100%">
-  <div align="center" style="height: 40vh;width:60%;border-radius: 20px; background-color: rgba(255, 255, 255, 0.204);color:white;text-align: justify;" >
+  <div align="center" style="height: 40vh;width:60%;border-radius: 20px;margin-top : 40px background-color: rgba(255, 255, 255, 0.204);color:white;text-align: justify;" >
       <div style="padding: 30px;">
           <h1 style="font-size: 30px;">Sorry for the inconvenience This website isn't designed for mobile view</h1>
       </div>
