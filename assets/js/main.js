@@ -12616,7 +12616,7 @@ var viewportFlag=0;
 function viewportCheck() {
   const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
   const home=document.getElementsByTagName('body')[0];
-  if(vw<1240){
+  if(vw<1300){
   viewportFlag=1;
   tempbody=home.innerHTML;
   home.style.backgroundColor="rgba(6, 27, 186, 0.75)";
