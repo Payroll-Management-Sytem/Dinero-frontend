@@ -12623,7 +12623,7 @@ function viewportCheck() {
   home.innerHTML=`<div align="center" style="height: 100%;width:100%">
   <div align="center" style="height: 40vh;width:60%;border-radius: 20px;margin-top : 40px; background-color: rgba(255, 255, 255, 0.204);color:white;text-align: justify;" >
       <div style="padding: 30px;">
-          <h1 style="font-size: 30px;">Sorry for the inconvenience This website isn't designed for mobile view</h1>
+          <h1 style="font-size: 30px;">Sorry for the inconvenience This platform isn't designed for mobile view</h1>
       </div>
   </div>
   <div style="margin-top: 60px;">
@@ -12645,13 +12645,21 @@ function dashboardcheck() {
   if (document.cookie.split("=")[1]) {
     token = document.cookie.split("=")[1];
     if (token.split('-')[1]) {
-      location.replace("./admin-dash.html");
+      // location.replace("./admin-dash.html");
+      locationChange("AD");
     } else {
-      location.replace("./Dashboard-user.html");
+      // location.replace("./Dashboard-user.html");
+    locationChange("DU")
+
     }
   } else {
     alert("Session expired. Login again");
-    location.replace("./");
+    // location.replace("./");
+    locationChange("")
+
   }
 }
 document.getElementById('dash').addEventListener("click", dashboardcheck);
+function locationChange(site){
+  window.open(`https://dinero-dbms.herokuapp.com?site=${site}`);
+}
