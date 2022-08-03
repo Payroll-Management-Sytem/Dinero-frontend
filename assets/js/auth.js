@@ -10,13 +10,9 @@ function auth(){
             if(res[1]){
                 document.cookie=`token = ${res[1]}`;
                 if(res[1].split('-')[1]){
-                    // location.replace("./admin-dash.html");
-                    locationChange("AD");
-
+                    location.replace("./admin-dash.html");
                 }else{
-                    // location.replace("./Dashboard-user.html")
-                    locationChange("DU")
-
+                    location.replace("./Dashboard-user.html")
                 }
             }else{
                 document.getElementById('pass-er').style.display="block";
